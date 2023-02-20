@@ -1,0 +1,14 @@
+<div class="container-flex">
+  <h1>Longest Word Game</h1>
+  <ul>
+    <% @letters.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+  <form action="/score" method="post" data-turbo="false">
+    <input type="text" name="word" placeholder="Enter a word" class="text-field shadow">
+    <input type="submit" class="button shadow">
+    <input type="hidden" name="letters" value="<%= @letters.join %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+</div>
